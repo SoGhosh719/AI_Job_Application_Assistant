@@ -1,0 +1,13 @@
+streamlit
+spacy
+PyPDF2
+fpdf
+openai>=1.0.0
+sentence-transformers
+transformers
+torch
+selenium
+pytesseract
+beautifulsoup4
+requests
+sqlite3

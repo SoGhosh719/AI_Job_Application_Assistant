@@ -1,4 +1,3 @@
---no-cache-dir
 streamlit
 spacy
 PyPDF2

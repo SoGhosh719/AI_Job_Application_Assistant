@@ -9,7 +9,7 @@ COPY . .
 
 # ✅ Upgrade pip and install required dependencies
 RUN pip install --upgrade pip
-RUN pip install -r backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
 # ✅ Expose Streamlit Port
 EXPOSE 8501

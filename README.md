@@ -1,9 +1,6 @@
----
-
 # **AI Job Application Assistant 🚀**
 **An AI-powered assistant that helps job seekers find, match, and apply for jobs efficiently using NLP, OCR, and browser automation.**
 
----
 
 ## **🌟 Key Features**
 ✅ **Extract Job Descriptions** – Supports **OCR (Tesseract) & HTML Scraping (BeautifulSoup, Selenium)**  

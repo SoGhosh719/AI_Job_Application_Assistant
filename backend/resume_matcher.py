@@ -1,15 +1,26 @@
-import spacy
 import os
+import subprocess
+
+# ✅ Ensure `spacy` is installed before importing
+try:
+    import spacy
+except ModuleNotFoundError:
+    print("⚠️ 'spacy' not found. Installing now...")
+    subprocess.run(["pip", "install", "spacy==3.8.4"], check=True)
+    import spacy
+
 from sentence_transformers import SentenceTransformer, util
 
-# ✅ Load spaCy Model (Stored Locally)
-spacy_model_path = os.path.join(os.path.dirname(__file__), "models/en_core_web_sm")
+# ✅ Load spaCy Model (Download If Not Found)
+spacy_model_name = "en_core_web_sm"
 
 try:
-    nlp = spacy.load(spacy_model_path)
-    print("✅ spaCy model loaded successfully!")
+    nlp = spacy.load(spacy_model_name)
+    print(f"✅ spaCy model '{spacy_model_name}' loaded successfully!")
 except OSError:
-    raise RuntimeError(f"❌ spaCy model not found in {spacy_model_path}. Ensure it's inside the repository.")
+    print(f"⚠️ spaCy model '{spacy_model_name}' not found. Downloading now...")
+    subprocess.run(["python", "-m", "spacy", "download", spacy_model_name], check=True)
+    nlp = spacy.load(spacy_model_name)
 
 # ✅ Load Sentence Transformer Model (For Resume Matching)
 model = SentenceTransformer("all-MiniLM-L6-v2")
